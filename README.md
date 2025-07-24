@@ -2,56 +2,66 @@
 Overview
 This project analyzes electric vehicle (EV) adoption trends across different counties in the United States. The dataset contains information about EV populations, including battery electric vehicles (BEVs) and plug-in hybrid electric vehicles (PHEVs), along with traditional vehicle counts for comparison.
 
-Dataset
-The dataset includes:
+Objective
+To predict energy demand (kWh) for EV charging stations using:
+-Date and time features
+-Weather data (e.g., temperature)
+-Holiday/working day information
 
-20,819 records with 10 features
+Key Steps Covered
+1. Data Loading & Cleaning
+Loaded a dataset with features like date, hour, temperature, holiday, etc.
 
-County and state information
+Handled missing values and cleaned the time-series format.
 
-Vehicle types (Passenger, Truck, etc.)
+2. Feature Engineering
+Created new features:
 
-Counts of BEVs, PHEVs, and non-electric vehicles
+is_weekend
 
-Percentage of electric vehicles in each area
+day_of_week
 
-Data spanning from 2020 to 2022
+month
 
-Key Features
-Data cleaning and preprocessing:
+hour bucketed as time_of_day
 
-Handling missing values in county and state information
+Converted categorical data (like holidays) into numerical formats.
 
-Date standardization
+3. Exploratory Data Analysis (EDA)
+Visualized charging trends across:
 
-Outlier detection and treatment in percentage values
+Time (hour/day/month)
 
-Analysis includes:
+Temperature
 
-Basic statistics and data exploration
+Holiday vs. non-holiday
 
-Identification of EV adoption patterns
+Used plots to uncover demand patterns.
 
-Geographic distribution of electric vehicles
+4. Model Building
+Multiple regression models were trained and tested:
 
-Technologies Used
-Python
+Linear Regression
 
-Pandas for data manipulation
+Decision Tree Regressor
 
-NumPy for numerical operations
+Random Forest Regressor
 
-Matplotlib and Seaborn for visualization
+Gradient Boosting Regressor
 
-Scikit-learn for potential machine learning applications
+XGBoost Regressor
 
-Potential Applications
-This analysis could be used to:
+Each model was evaluated using:
 
-Identify regions with high EV adoption
+R² Score
 
-Track growth trends in electric vehicle usage
+MAE (Mean Absolute Error)
 
-Inform infrastructure planning for charging stations
+RMSE (Root Mean Squared Error)
 
-Compare adoption rates between different vehicle types
+5. Results & Visualization
+Displayed feature importance from tree-based models.
+
+Plotted actual vs. predicted demand.
+
+Choose the best-performing model based on metrics.
