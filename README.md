@@ -45,7 +45,7 @@ A Flask web server that:
 - Accepts input data from users
 - Returns the forecasted EV population
 
-### Example Endpoint
+
 
 ```bash
 POST /predict
