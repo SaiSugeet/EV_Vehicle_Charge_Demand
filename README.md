@@ -1,67 +1,53 @@
-# EV_Vehicle_Charge_Demand
-Overview
-This project analyzes electric vehicle (EV) adoption trends across different counties in the United States. The dataset contains information about EV populations, including battery electric vehicles (BEVs) and plug-in hybrid electric vehicles (PHEVs), along with traditional vehicle counts for comparison.
+# ⚡ Electric Vehicle Population Forecasting
 
-Objective
-To predict energy demand (kWh) for EV charging stations using:
--Date and time features
--Weather data (e.g., temperature)
--Holiday/working day information
+This project aims to forecast the future demand and growth of Electric Vehicles (EVs) using historical county-wise data. It utilizes machine learning techniques for modeling and provides a Flask-based web interface for easy deployment.
 
-Key Steps Covered
-1. Data Loading & Cleaning
-Loaded a dataset with features like date, hour, temperature, holiday, etc.
+## 🚀 Project Overview
 
-Handled missing values and cleaned the time-series format.
+With the rise in EV adoption across regions, predicting future growth patterns becomes crucial for planning infrastructure like charging stations and grid loads. This project:
 
-2. Feature Engineering
-Created new features:
+- Analyzes EV population data by U.S. counties
+- Preprocesses and engineers features for modeling
+- Trains a regression model to forecast EV count
+- Provides a web application to serve predictions interactively
 
-is_weekend
+---
 
-day_of_week
+## 📊 Dataset
 
-month
+### `Electric_Vehicle_Population_By_County.csv`
 
-hour bucketed as time_of_day
+- Source: Government EV registry (assumed)
+- Contains fields like `County`, `City`, `Make`, `Model`, `Electric Range`, and `Vehicle Type`
 
-Converted categorical data (like holidays) into numerical formats.
+### `preprocessed_ev_data.csv`
 
-3. Exploratory Data Analysis (EDA)
-Visualized charging trends across:
+- Cleaned version of the dataset with relevant features selected and encoded
+- Used for modeling and inference
 
-Time (hour/day/month)
+---
 
-Temperature
+## 🧠 Machine Learning Model
 
-Holiday vs. non-holiday
+- Model: Likely a DecisionTreeRegressor or similar (saved as `forecasting_ev_model.pkl`)
+- Input features: Processed variables derived from the raw dataset
+- Output: Forecasted number of EVs in a given region
 
-Used plots to uncover demand patterns.
+---
 
-4. Model Building
-Multiple regression models were trained and tested:
+## 🖥️ Application
 
-Linear Regression
+### `app.py`
 
-Decision Tree Regressor
+A Flask web server that:
 
-Random Forest Regressor
+- Loads the trained model
+- Accepts input data from users
+- Returns the forecasted EV population
 
-Gradient Boosting Regressor
+### Example Endpoint
 
-XGBoost Regressor
-
-Each model was evaluated using:
-
-R² Score
-
-MAE (Mean Absolute Error)
-
-RMSE (Root Mean Squared Error)
-
-5. Results & Visualization
-Displayed feature importance from tree-based models.
-
-Plotted actual vs. predicted demand.
-
-Choose the best-performing model based on metrics.
+```bash
+POST /predict
+Payload: JSON with input features
+Response: Forecasted EV count
