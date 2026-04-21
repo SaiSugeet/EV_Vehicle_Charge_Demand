@@ -12,6 +12,18 @@ st.set_page_config(page_title="EV Forecast", layout="wide")
 model = joblib.load('forecasting_ev_model.pkl')
 
 
+def patch_sklearn_tree_compatibility(model):
+    """Patch older pickled sklearn trees for newer sklearn runtimes."""
+    estimators = getattr(model, "estimators_", [])
+    for estimator in estimators:
+        if not hasattr(estimator, "monotonic_cst"):
+            estimator.monotonic_cst = None
+    return model
+
+
+model = patch_sklearn_tree_compatibility(model)
+
+
 st.markdown("""
     <style>
         body {
