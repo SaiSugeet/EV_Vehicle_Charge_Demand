@@ -157,7 +157,7 @@ source .venv/bin/activate
 Install dependencies:
 
 ```bash
-pip install -r Requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Run the Project
@@ -192,7 +192,7 @@ app.py
 Required runtime files:
 
 - `app.py`
-- `Requirements.txt`
+- `requirements.txt`
 - `preprocessed_ev_data.csv`
 - `forecasting_ev_model.pkl`
 - `ev-car.jpg`
@@ -206,7 +206,7 @@ EV_Vehicle_Charge_Demand/
 |-- .gitignore
 |-- app.py
 |-- EV.ipynb
-|-- Requirements.txt
+|-- requirements.txt
 |-- Electric_Vehicle_Population_By_County.csv
 |-- preprocessed_ev_data.csv
 |-- forecasting_ev_model.pkl
@@ -220,7 +220,7 @@ EV_Vehicle_Charge_Demand/
 - `Electric_Vehicle_Population_By_County.csv` - Raw county-level EV population dataset.
 - `preprocessed_ev_data.csv` - Cleaned and feature-engineered dataset used by the app.
 - `forecasting_ev_model.pkl` - Trained Random Forest forecasting model.
-- `Requirements.txt` - Python dependencies required to run the project.
+- `requirements.txt` - Python dependencies required to run the project.
 - `ev-car.jpg` - Dashboard image asset.
 
 ## Use Cases
